@@ -28,21 +28,24 @@ class setEx {
 
     //удаляет элемент из множества
     Delete(value) {
-        var i;
         if(!this.has(value)){
             console.log("Elem not found");
             return;
         }
-        for(i = 0; i < this.size; i++){
+        var temp;
+        for(var i = 0; i < this.size; i++){
             if(this.arr[i] == value){
                 delete this.arr[i];
+                temp = i;
                 this.size--;
                 break;
             }
         }
-        if(i != this.size - 1){
-        this.arr[i] = this.arr[this.size];
-        delete this.arr[this.size];
+        if(temp != this.size - 1){
+            for(var i = temp; i < this.size; i++){
+                this.arr[i] = this.arr[i+1];
+            }
+            delete this.arr[this.size];
         }
     }
 
