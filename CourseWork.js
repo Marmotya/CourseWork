@@ -121,18 +121,18 @@ class setEx {
     //симметрическая разность
     difference(otherSet){
         var differenceSet = new setEx;
-        top1: for(var i = 0; i < this.size; i++){
+        top: for(var i = 0; i < this.size; i++){
             for(var j = 0; j < this.intersecrion(otherSet).size; j++){
                 if (this.arr[i] == this.intersecrion(otherSet).arr[j]){
-                    continue top1;
+                    continue top;
                 }
             }
             differenceSet.add(this.arr[i]);
         }
-        top2: for(var i = 0; i < otherSet.size; i++){
+        top: for(var i = 0; i < otherSet.size; i++){
             for(var j = 0; j < this.intersecrion(otherSet).size; j++){
                 if (otherSet.arr[i] == this.intersecrion(otherSet).arr[j]){
-                    continue top2;
+                    continue top;
                 }
             }
             differenceSet.add(otherSet.arr[i]);
