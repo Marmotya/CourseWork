@@ -6,7 +6,6 @@ class setEx {
         this.size = 0;
     }
 
-
     //добавляет элемент в множество
     add(velue) {
         for(var i = 0; i < this.size; i++){
@@ -75,13 +74,9 @@ class setEx {
         return false;
     }
 
-    //возвращает значения ключей
+    //возвращает значения ключей(но set.keys возвращает то же самое, что и set.values)
     keys(){
-        var keysArry = [];
-        for (var i = 0; i < this.size; i++){
-            keysArry[i] = i;
-        }
-        return keysArry;
+        return values();
     }
 
     //возвращает элементы множества
@@ -233,7 +228,4 @@ diffrnce.clear();
 delete diffrnce;
 complmnt.clear();
 delete complmnt;
-
-
-
 
