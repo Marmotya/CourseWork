@@ -10,11 +10,12 @@ class setEx {
   add(velue) {
     for (let i = 0; i < this.size; i++) {
       if (this.arr[i] === velue) {
-        return;
+        return false;
       }
     }
     this.arr[this.size] = velue;
     this.size++;
+    return true;
   }
 
   //очищает множество
@@ -29,7 +30,7 @@ class setEx {
   Delete(value) {
     if (!this.has(value)) {
       console.log('Elem not found');
-      return;
+      return false;
     }
     let temp;
     for (let i = 0; i < this.size; i++) {
@@ -46,6 +47,7 @@ class setEx {
       }
       delete this.arr[this.size];
     }
+    return true;
   }
 
   //возвращает массивы [Ключ, Значение] для каждого элемента
