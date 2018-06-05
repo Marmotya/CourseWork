@@ -78,7 +78,7 @@ class setEx {
 
   //возвращает значения ключей(но set.keys возвращает то же самое, что и set.values)
   keys() {
-    return values();
+    return this.values();
   }
 
   //возвращает элементы множества
