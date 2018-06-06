@@ -1,6 +1,6 @@
 'use strict';
 
-class setEx {
+class SetEx {
   constructor() {
     this.arr = {};
     this.size = 0;
@@ -24,6 +24,7 @@ class setEx {
       delete this.arr[i];
     }
     this.size = 0;
+    return true;
   }
 
   //удаляет элемент из множества
@@ -76,11 +77,6 @@ class setEx {
     return false;
   }
 
-  //возвращает значения ключей(но set.keys возвращает то же самое, что и set.values)
-  keys() {
-    return this.values();
-  }
-
   //возвращает элементы множества
   values() {
     const valuesArry = [];
@@ -90,9 +86,15 @@ class setEx {
     return valuesArry;
   }
 
+  /*возвращает значения ключей
+  (но set.keys возвращает то же самое, что и set.values)*/
+  keys() {
+    return this.values();
+  }
+
   //объединение
   union(otherSet) {
-    const unionSet = new setEx();
+    const unionSet = new SetEx();
     for (let i = 0; i < this.size; i++) {
       unionSet.add(this.arr[i]);
     }
@@ -104,7 +106,7 @@ class setEx {
 
   //пересечение
   intersecrion(otherSet) {
-    const intersecrionSet = new setEx();
+    const intersecrionSet = new SetEx();
     for (let i = 0; i < this.size; i++) {
       for (let j = 0; j < otherSet.size; j++) {
         if (this.arr[i] === otherSet.arr[j]) {
@@ -117,7 +119,7 @@ class setEx {
 
   //симметрическая разность
   difference(otherSet) {
-    const differenceSet = new setEx();
+    const differenceSet = new SetEx();
     top: for (let i = 0; i < this.size; i++) {
       for (let j = 0; j < this.intersecrion(otherSet).size; j++) {
         if (this.arr[i] === this.intersecrion(otherSet).arr[j]) {
@@ -139,7 +141,7 @@ class setEx {
 
   //разность
   complement(otherSet) {
-    const complementSet = new setEx();
+    const complementSet = new SetEx();
     top: for (let i = 0; i < this.size; i++) {
       for (let j = 0; j < this.intersecrion(otherSet).size; j++) {
         if (this.arr[i] === this.intersecrion(otherSet).arr[j]) {
@@ -152,7 +154,7 @@ class setEx {
   }
 }
 
-const mySet = new setEx();
+const mySet = new SetEx();
 mySet.add('Black Panther');
 mySet.add('The Stolen Princess');
 mySet.add('Ready Player One');
@@ -186,7 +188,7 @@ console.log('Test entries(): ');
 console.dir(mySet.entries());
 
 console.log('Second set:');
-const newSet = new setEx();
+const newSet = new SetEx();
 newSet.add('Solo: A Star Wars Story');
 newSet.add('Truth or Dare');
 newSet.add('Ready Player One');
@@ -197,22 +199,22 @@ newSet.add('Bad Samaritan');
 console.dir(newSet.values());
 
 console.log('Union: ');
-let unionSt = new setEx();
+let unionSt = new SetEx();
 unionSt = mySet.union(newSet);
 console.dir(unionSt.values());
 
 console.log('Intersecrion: ');
-let intrscrion = new setEx();
+let intrscrion = new SetEx();
 intrscrion = mySet.intersecrion(newSet);
 console.dir(intrscrion.values());
 
 console.log('Difference:');
-let diffrnce = new setEx();
+let diffrnce = new SetEx();
 diffrnce = mySet.difference(newSet);
 console.dir(diffrnce.values());
 
 console.log('Complement:');
-let complmnt = new setEx();
+let complmnt = new SetEx();
 complmnt = mySet.complement(newSet);
 console.dir(complmnt.values());
 
@@ -224,5 +226,3 @@ unionSt.clear();
 intrscrion.clear();
 diffrnce.clear();
 complmnt.clear();
-
-
