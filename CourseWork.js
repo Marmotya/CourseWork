@@ -28,7 +28,7 @@ class SetEx {
   }
 
   //удаляет элемент из множества
-  Delete(value) {
+  delet(value) {
     if (!this.has(value)) {
       console.log('Elem not found');
       return false;
@@ -176,8 +176,8 @@ console.log('First set:');
 console.dir(mySet.values());
 
 console.log('Test delete(): ');
-mySet.Delete('Rampage');
-mySet.Delete('Meg');
+mySet.delet('Rampage');
+mySet.delet('Meg');
 console.dir(mySet.values());
 
 console.log('Test has(): ');
